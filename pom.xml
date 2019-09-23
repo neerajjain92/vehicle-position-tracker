@@ -76,7 +76,7 @@
                 <version>1.6.1</version>
                 <configuration>
                     <to>
-                        <image>docker.io/neerajjain/vehiclePosition-position-tracker</image>
+                        <image>docker.io/neerajjain/vehicle-position-tracker</image>
                     </to>
                 </configuration>
             </plugin>
