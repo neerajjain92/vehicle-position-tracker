@@ -12,7 +12,7 @@
     <artifactId>positiontracker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>PositionTracker</name>
-    <description>A Micro Service which consumes vehicle position reports from a queue.</description>
+    <description>A Micro Service which consumes vehiclePosition position reports from a queue.</description>
 
     <properties>
         <java.version>11</java.version>
@@ -25,11 +25,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
             <exclusions>
@@ -38,6 +33,34 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
         </dependency>
     </dependencies>
 
@@ -53,7 +76,7 @@
                 <version>1.6.1</version>
                 <configuration>
                     <to>
-                        <image>docker.io/neerajjain/vehicle-position-tracker</image>
+                        <image>docker.io/neerajjain/vehiclePosition-position-tracker</image>
                     </to>
                 </configuration>
             </plugin>
