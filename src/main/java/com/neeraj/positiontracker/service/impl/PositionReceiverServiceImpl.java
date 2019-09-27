@@ -42,13 +42,30 @@ public class PositionReceiverServiceImpl implements PositionReceiverService {
     @Override
     public VehiclePosition getLatestPositionFor(String vehicleName) throws VehicleNotFoundException {
         POSITION_TRACKER_LOGGER.info("Get Latest Position For {}", vehicleName);
+
+        List<VehiclePosition> tripCoordinates = getTripCoordinatesForVehicle(vehicleName);
+        if (tripCoordinates.isEmpty()) {
+            throw new VehicleNotFoundException();
+        }
+        return tripCoordinates.get(tripCoordinates.size() - 1);
+    }
+
+    @Override
+    public List<VehiclePosition> getHistoryForVehicle(String vehicleName) throws VehicleNotFoundException {
+        POSITION_TRACKER_LOGGER.info("Getting History for {}", vehicleName);
+
+        List<VehiclePosition> tripCoordinates = getTripCoordinatesForVehicle(vehicleName);
+        if (tripCoordinates.isEmpty()) {
+            throw new VehicleNotFoundException();
+        }
+        return tripCoordinates;
+    }
+
+    private List<VehiclePosition> getTripCoordinatesForVehicle(String vehicleName) {
         Example<VehiclePosition> vehiclePositionExample =
                 Example.of(VehiclePosition.build(vehiclePosition -> vehiclePosition.setName(vehicleName)));
 
         List<VehiclePosition> positions = vehiclePositionRepository.findAll(vehiclePositionExample);
-        if (positions.isEmpty()) {
-            throw new VehicleNotFoundException();
-        }
-        return positions.get(positions.size() - 1);
+        return positions;
     }
 }

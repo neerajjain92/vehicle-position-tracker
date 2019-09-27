@@ -17,8 +17,8 @@ import java.util.function.Consumer;
  * All rights reserved.
  */
 @Data
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlRootElement
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class VehiclePosition implements Comparator<VehiclePosition> {
 
     private String name;
