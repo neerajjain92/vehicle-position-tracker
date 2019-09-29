@@ -18,4 +18,6 @@ public interface VehiclePositionRepository extends MongoRepository<VehiclePositi
     List<VehiclePosition> findByNameAndTimestampAfter(String name, Date timestamp);
 
     List<VehiclePosition> findByTimestampAfter(Date since);
+
+    VehiclePosition findFirst1ByNameOrderByTimestampDesc(String name);
 }
